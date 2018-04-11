@@ -4,11 +4,11 @@
 }
 
 .login{
-  display: none;
+  /* display: none; */
 }
 .register{
-  display: block;
+  display: none;
 }
 .login-success{
-  /*display: none;*/
+  /* display: none; */
 }

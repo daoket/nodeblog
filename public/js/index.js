@@ -18,10 +18,14 @@ function blogAjax(url, data) {
         $('.register-tips').html(message)
         $('.register').hide()
         $('.login').show()
-      } else if (code == '010') {  // 登录成功
-        window.location.reload()
       } else {
         $('.register-tips').html(message).css('color', 'red')
+      }
+      // 登录成功
+      if (code == '010') {
+        window.location.reload()
+      } else {
+        $('.login-tips').html(message).css('color', 'red')
       }
     }
   });
@@ -41,7 +45,7 @@ $(".register-btn").on('click', function () {
   var register = "/api/user/register"
   var data = {
     username: $(".register .username").val(),
-    password: $(".register .password").val(), 
+    password: $(".register .password").val(),
     repassword: $(".register .repassword").val()
   }
   console.log(data)

@@ -9,10 +9,15 @@
 </head>
 <body>
   <!--登录成功-->
-  {% if userInfo %}
+  {% if userInfo._id %}
   <div class="login-success sign">
-    <p>姓名: <span class="login-name">{{ userInfo.slice(46, -2) }}</span></p>
+    <p>{{userInfo.title}}</p>
+    <p>姓名: <span class="login-name">{{ userInfo.username }}</span></p>
+    {% if userInfo.isAdmin %}
+    <p class="login-tips">你好，管理员！<a href="/admin">进入管理界面</a></p>
+    {% else %}
     <p class="login-tips">你好，欢迎光临我的博客！</p>
+    {% endif %}
     <button class='login-out'>退出</button>
   </div>
   {% else %}
@@ -24,7 +29,7 @@
     </div>
     <div class="input-group">
       <label for="userName">密码</label>
-      <input class="password" type="text" value="">
+      <input class="password" type="password" value="">
     </div>
     <p class="login-tips">欢迎登录</p>
     <button class='login-btn'>登录</button>
@@ -38,11 +43,11 @@
     </div>
     <div class="input-group">
       <label for="userName">密码</label>
-      <input class="password" type="text" value="">
+      <input class="password" type="password" value="">
     </div>
     <div class="input-group">
       <label for="userName">确认密码</label>
-      <input class="repassword" type="text" value="">
+      <input class="repassword" type="password" value="">
     </div>
     <p class="register-tips">欢迎注册</p>
     <button class='register-btn'>注册</button>
