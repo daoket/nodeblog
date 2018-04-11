@@ -8,12 +8,47 @@
   <link rel="stylesheet" type="text/css" href="/public/css/main.css">
 </head>
 <body>
-  <input class="name" type="text" value="iwen">
-  <input class="password" type="text" value="123">
-  <input class="repassword" type="text" value="123">
-
-  <button class='submit-btn'>submit</button>
-
+  <!--登录成功-->
+  {% if userInfo %}
+  <div class="login-success sign">
+    <p>姓名: <span class="login-name">{{ userInfo.slice(46, -2) }}</span></p>
+    <p class="login-tips">你好，欢迎光临我的博客！</p>
+    <button class='login-out'>退出</button>
+  </div>
+  {% else %}
+  <!--登录-->
+  <div class="login sign">
+    <div class="input-group">
+      <label for="userName">姓名</label>
+      <input id="userName" class="username" type="text" value="">
+    </div>
+    <div class="input-group">
+      <label for="userName">密码</label>
+      <input class="password" type="text" value="">
+    </div>
+    <p class="login-tips">欢迎登录</p>
+    <button class='login-btn'>登录</button>
+    <button class='go-register'>点击注册</button>
+  </div>
+  <!--注册-->
+  <div class="register sign">
+    <div class="input-group">
+      <label for="userName">姓名</label>
+      <input id="userName" class="username" type="text" value="">
+    </div>
+    <div class="input-group">
+      <label for="userName">密码</label>
+      <input class="password" type="text" value="">
+    </div>
+    <div class="input-group">
+      <label for="userName">确认密码</label>
+      <input class="repassword" type="text" value="">
+    </div>
+    <p class="register-tips">欢迎注册</p>
+    <button class='register-btn'>注册</button>
+    <button class='go-login'>点击登录</button>
+  </div>
+  {% endif %}
   <script src="/public/js/jquery.min.js"></script>
   <script src="/public/js/index.js"></script>
 </body>
