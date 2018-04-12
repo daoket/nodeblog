@@ -33,14 +33,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // 设置cookie
 app.use(function (req, res, next) {
   req.cookies = new Cookies(req, res)
-
   // 解析登录用户的cookies信息
   var userInfo = {}
   if (req.cookies.get('userInfo')) {
     try{
       req.userInfo = JSON.parse(req.cookies.get("userInfo"));
       User.findById(req.userInfo._id).then(function (userInfo) {
-        // 虽然先执行，但是由于双层回调，后于main.js打印结果，建议使用async
         req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
       })
     }catch(e){

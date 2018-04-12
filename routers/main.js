@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const User = require('../models/user')
 
 router.get("/", (req, res, next) => {
-  res.render("main/index", {
-    userInfo: req.userInfo
-  });
+  setTimeout(() => {
+    res.render("main/index", {
+      userInfo: req.userInfo
+    });
+  }, 200);
 });
 
 module.exports = router;
