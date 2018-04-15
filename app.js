@@ -11,7 +11,7 @@ const mongoose = require("mongoose")
 // 将post发送的数据解析为json，并通过req.body来调用
 const bodyParser = require("body-parser")
 const Cookies = require("cookies")
-const User = require('./models/user')
+const User = require('./models/User')
 
 // 创建app应用
 const app = new express()
@@ -28,7 +28,8 @@ app.set('view engine', 'html')
 swig.setDefaults({cache: false})
 
 // 中间件 处理post提交数据为json格式，必须在路由之前
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // 设置cookie
 app.use(function (req, res, next) {

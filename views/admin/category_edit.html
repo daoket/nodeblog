@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">管理首页</a></li>
+  <li><span>分类编辑</span></li>
+</ol>
+
+<h3>分类编辑-{{category.name}}</h3>
+
+<form role='form' method="post">
+  <div class="form-group">
+    <label for="name">分类名称</label>
+    <input type="text" value="{{category.name}}" class="form-control" id="name" placeholder="分类名称" name="name">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+{% endblock %}

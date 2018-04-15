@@ -48,7 +48,6 @@ $(".register-btn").on('click', function () {
     password: $(".register .password").val(),
     repassword: $(".register .repassword").val()
   }
-  console.log(data)
   blogAjax(register, data)
 })
 
@@ -72,4 +71,28 @@ $(".login-out").on('click', function () {
   	  location.reload()
   	}
   });
+})
+
+// 增加分类
+$('.add-category').on('click', function () {
+  var add = location.href
+  var data = {
+    category: $("#name").val(),
+  }
+  addCategory(add, data)
+  function addCategory(url, data) {
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      dataType: "JSON",
+      async:true,
+      error: function(data) {
+        alert('加载异常，请稍后重试')
+      },
+      success: function(res) {
+        console.log(res)
+      }
+    });
+  }
 })

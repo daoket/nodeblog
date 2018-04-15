@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <h2>后台管理系统</h2>
-  <h4>用户列表</h4>
-  <table>
-  <tr>
-    <th>id</th>
-    <th>用户名</th>
-    <th>管理员</th>
-  </tr>
-  <!-- <tr>
-    <td>{{user._id}}</td>
-    <td>{{user.username}}</td>
-    <td>{{user.isAdmin}}</td>
-  </tr> -->
-</table>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="jumbotron">
+  <h1>Hello, {{userInfo.username}}</h1>
+  <p>欢迎进入我的博客后台管理!</p>
+</div>
+{% endblock %}

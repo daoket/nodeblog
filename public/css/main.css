@@ -1,5 +1,12 @@
+body{
+  color: #666;
+  background: #ddd;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
 .sign{
-  border: 1px solid #555;
   padding: 10px 15px;
 }
 
@@ -11,4 +18,126 @@
 }
 .login-success{
   /* display: none; */
+}
+.input-group{
+  margin: 10px;
+}
+button{
+    display: inline-block;
+    color: #FFFFFF;
+    background: #1890ff;
+    outline: none;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+input{
+    max-width: 400px;
+    color: #666;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: #fff;
+}
+input:focus{
+    border-color: #1890ff;
+    box-shadow: 0px 0px 1px #1890FF;
+}
+label{
+  display: inline-block;
+  width: 70px;
+}
+
+.head-bg{
+  width: 100%;
+  height: 142px;
+  overflow: hidden;
+  text-align: center;
+  background: #0C0705;
+}
+
+.app-main{
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu{
+  height: 40px;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.menu a{
+  color: #666;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.login-box{
+  display: inline-block;
+  width: 350px;
+  height: 300px;
+  background: #FFFFFF;
+  margin-bottom: 20px;
+}
+.login-box button{
+  margin: 0 10px;
+}
+.login-tips, .register-tips{
+  margin: 20px 10px;
+}
+.login-box .title{
+  margin: 20px 20px 0;
+}
+
+.article-box{
+  display: inline-block;
+  width: 600px;
+}
+.article-box .article{
+  width: 100%;
+  height: 200px;
+  background: #FFFFFF;
+  margin-bottom: 20px;
+}
+.article-box .article h4{
+  text-align: center;
+  padding: 20px 0;
+  font-size: 28px;
+}
+.article-box .article .info{
+  text-align: center;
+}
+.article-box .article p{
+  margin: 10px 0;
+}
+.article-box .intro{
+  padding-left: 20px;
+}
+.article-box .look-all{
+  margin-top: 10px;
+  margin-left: 20px;
 }

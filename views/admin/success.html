@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin">管理首页</a></li>
+  <li><span>成功提示</span></li>
+</ol>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">admin</h3> 
+  </div>
+  <div class="panel-body"> {{message}} </div>
+  <div class="panel-footer">
+    {% if url %}
+    <a href="{{url}}">点击跳转</a>
+    {% else %}
+    <a href="javascript:window.history.back()">返回上一页</a>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
