@@ -1,13 +1,52 @@
 {% extends 'layout.html' %}
 {%block conent%}
 <div class="article-page">
-  <h4>{{content.title}}</h4>
-  <p class="info">
-    作者：{{content.user.username}}
-    时间：{{content.addTime|date('Y年m月d日 H:i:s', -8*60)}}
-    阅读：{{content.view}}
-    <!--评论：{{content.title}}-->
-  </p>
-  <p class="intro">{{content.description}}</p>
+  <div class="article">
+  	<h4>{{content.title}}</h4>
+    <p class="info">
+      作者：{{content.user.username}}
+      时间：{{content.addTime|date('Y年m月d日 H:i:s', -8*60)}}
+      阅读：{{content.view}}
+      评论：{{content.comments.length}}
+    </p>
+    <p class="intro">{{content.description}}</p>
+  </div>
+  <div class="comment-box">
+  	<p class="title">
+  	  <span>评论</span>
+  	  <span>一共有<span class="comment-times">0</span>条评论</span>
+  	</p>
+  	<p class="comment-tips"></p>
+  	{% if userInfo._id %}
+  	<div class="comment-group">
+  		<textarea class="comment-area" name="comment"></textarea>
+  		<input type="hidden" class="contentId" value="{{content._id.toString()}}" />
+      <input class="comment-btn" type="button" value="提交"/>
+  	</div>
+  	{% else %}
+    	<div class="no-login">你还没有登录，请先登录</div>
+  	{% endif %}
+  	{% if content.comments.length %}
+      <div class="comment-list">
+      	<div class="comment-item">
+          <p class="commit-title"><span>{{comment.username}}</span> <span>{{comment.postTime|date('Y年m月d日 H:i:s', -8*60)}}</span></p>
+          <p class="comment-conent">{{comment.content}}</p>
+        </div>
+      </div>
+  	{% else %}
+    	<p>没有留言</p>
+  	{% endif %}
+    <ul class="comment-page">
+      <li class="previous">
+         
+      </li>
+        <li></li>
+      <li class="next">
+          <!--<span>没有下一页了</span>-->
+          <a href="">下一页 </a>
+      </li>
+    </ul>
+  </div>
 </div>
+<script src="/public/js/comment.js"></script>
 {% endblock %}

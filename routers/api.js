@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require('../models/User');
+const Content = require('../models/Content');
 
 var responseDate
 
@@ -107,6 +108,52 @@ router.post("/user/login", (req, res, next) => {
 router.get('/user/logout', function (req, res, next) {
   req.cookies.set('userInfo', null)
   res.json(responseDate)
+})
+
+// 获取评论
+router.post('/comment', function (req, res) {
+  // 内容id
+  var contentid = req.body.contentid || ''
+  // 查询文章内容
+  Content.findOne({
+      _id: contentid
+  }).then(function (content) {
+      responseDate.data = content
+      responseDate.code = '666'
+      res.json(responseDate)
+      return
+  })
+})
+
+// 用户评论
+router.post('/comment/post', function (req, res) {
+  
+  if (req.body.content == '') {
+  	responseDate.message = '数据不能为空'
+    responseDate.code = '999'
+    res.json(responseDate)
+  }
+  
+  // 内容id
+  var contentid = req.body.contentid || ''
+  var postDate = {
+    username: req.userInfo.username,
+    postTime: new Date(),
+    content: req.body.content
+  }
+  
+  // 查询文章内容
+  Content.findOne({
+    _id: contentid
+  }).then(function (content) {
+    content.comments.push(postDate)
+    return content.save()
+  }).then(function (newContent) {
+    responseDate.message = '评论成功'
+    responseDate.data = newContent
+    responseDate.code = '666'
+    res.json(responseDate)
+  })
 })
 
 module.exports = router;

@@ -112,7 +112,6 @@ label{
 .login-box .title{
   margin: 20px 20px 0;
 }
-
 .article-box{
   display: inline-block;
   width: 600px;
@@ -147,9 +146,11 @@ label{
 }
 
 .article-page{
+  margin-bottom: 20px;
+}
+.article-page .article{
   width: 600px;
   background: #FFFFFF;
-  margin-bottom: 20px;
 }
 .article-page h4{
   text-align: center;
@@ -159,11 +160,11 @@ label{
 .article-page .info{
   text-align: center;
 }
-.article-page p{
-  margin: 20px;
+.article-page .article p{
+  padding: 20px;
 }
 
-.paging{
+.paging, .comment-page{
   height: 45px;
   display: flex;
   justify-content: space-between;
@@ -174,10 +175,75 @@ label{
   margin: 20px 0;
   text-decoration: none;
 }
-.paging a{
+.paging a, .comment-page a{
   color: #666;
 }
 
 .focus{
   border-bottom: 1px solid #007BFF;
+}
+
+
+.comment-box{
+  width: 600px;
+  box-sizing: border-box;
+  min-height: 100px;
+  margin-top: 20px;
+  padding: 0 20px;
+  background: #FFFFFF;
+}
+.comment-box p{
+  padding: 20px 0;
+}
+.comment-box .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-box .comment-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-box .comment-area{
+  width: 480px;
+  height: 40px;
+  padding: 10px 5px;
+  color: #666;
+  outline: none;
+  text-indent: 5px;
+  border: 1px solid #1890FF;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: #fff;
+}
+.comment-box .comment-btn{
+  width: 120px;
+  height: 60px;
+  color: #FFFFFF;
+  font-size: 28px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #1890FF;
+}
+.comment-box .no-login{
+  color: #fff;
+  margin: 10px 0;
+  text-align: center;
+  background: orange;
+}
+.comment-box .commit-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-box .comment-conent{
+  padding-bottom: 20px;
+}
+.comment-tips{
+  color: red;
 }

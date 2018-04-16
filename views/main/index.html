@@ -9,7 +9,7 @@
         作者：{{content.user.username}}
         时间：{{content.addTime|date('Y年m月d日 H:i:s', -8*60)}}
         阅读：{{content.view}}
-        <!--评论：{{content.title}}-->
+                     评论：{{content.comments.length}}
       </p>
       <p class="intro">{{content.description}}</p>
       <button class='look-all'><a href="/view?contentid={{content.id}}">阅读全文</a></button>
