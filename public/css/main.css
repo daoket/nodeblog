@@ -141,3 +141,43 @@ label{
   margin-top: 10px;
   margin-left: 20px;
 }
+.article-box .look-all a{
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.article-page{
+  width: 600px;
+  background: #FFFFFF;
+  margin-bottom: 20px;
+}
+.article-page h4{
+  text-align: center;
+  padding: 20px 0;
+  font-size: 28px;
+}
+.article-page .info{
+  text-align: center;
+}
+.article-page p{
+  margin: 20px;
+}
+
+.paging{
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  list-style: none;
+  padding: 0 20px;
+  margin: 20px 0;
+  text-decoration: none;
+}
+.paging a{
+  color: #666;
+}
+
+.focus{
+  border-bottom: 1px solid #007BFF;
+}

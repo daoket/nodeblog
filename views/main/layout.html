@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+</head>
+<body>
+  <div class="head-bg">
+    <img src="/public/images/head-bg.png"/>
+  </div>
+  <!--导航菜单-->
+  <div class="menu">
+    {% if category == '' %}
+    <a class="focus" href="/">首页</a>
+    {% else %}
+    <a href="/">首页</a>
+    {% endif %}
+    {% for cate in categories%}
+      {% if category == cate.id %}
+      <a class="focus" href="/?category={{cate.id}}">{{cate.name}}</a>
+      {% else %}
+       <a href="/?category={{cate.id}}">{{cate.name}}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <div class="app-main">
+    {%block conent%}{%endblock%}
+    <!--登录注册模块-->
+    <div class="login-box">
+      <h2 class="title">用户信息</h2>
+      <!--登录成功-->
+      {% if userInfo._id %}
+      <div class="login-success sign">
+        <p>{{userInfo.title}}</p>
+        <p>姓名: <span class="login-name">{{ userInfo.username }}</span></p>
+        {% if userInfo.isAdmin %}
+        <p class="login-tips">你好，管理员！<a href="/admin">进入管理界面</a></p>
+        {% else %}
+        <p class="login-tips">你好，欢迎光临我的博客！</p>
+        {% endif %}
+        <button class='login-out'>退出</button>
+      </div>
+      {% else %}
+      <!--登录-->
+      <div class="login sign">
+        <div class="input-group">
+          <label for="loginName">姓名</label>
+          <input id="loginName" class="username" type="text" value="">
+        </div>
+        <div class="input-group">
+          <label for="userName">密码</label>
+          <input class="password" type="password" value="">
+        </div>
+        <p class="login-tips">欢迎登录</p>
+        <button class='login-btn'>登录</button>
+        <button class='go-register'>点击注册</button>
+      </div>
+      <!--注册-->
+      <div class="register sign">
+        <div class="input-group">
+          <label for="registerrName">姓名</label>
+          <input id="registerrName" class="username" type="text" value="">
+        </div>
+        <div class="input-group">
+          <label for="userName">密码</label>
+          <input class="password" type="password" value="">
+        </div>
+        <div class="input-group">
+          <label for="userName">确认密码</label>
+          <input class="repassword" type="password" value="">
+        </div>
+        <p class="register-tips">欢迎注册</p>
+        <button class='register-btn'>注册</button>
+        <button class='go-login'>点击登录</button>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  <script src="/public/js/jquery.min.js"></script>
+  <script src="/public/js/index.js"></script>
+</body>
+</html>

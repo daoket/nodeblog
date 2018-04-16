@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{%block conent%}
+<div class="article-page">
+  <h4>{{content.title}}</h4>
+  <p class="info">
+    作者：{{content.user.username}}
+    时间：{{content.addTime|date('Y年m月d日 H:i:s', -8*60)}}
+    阅读：{{content.view}}
+    <!--评论：{{content.title}}-->
+  </p>
+  <p class="intro">{{content.description}}</p>
+</div>
+{% endblock %}

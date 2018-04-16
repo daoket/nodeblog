@@ -103,6 +103,7 @@ router.post("/user/login", (req, res, next) => {
   })
 });
 
+// 用户退出
 router.get('/user/logout', function (req, res, next) {
   req.cookies.set('userInfo', null)
   res.json(responseDate)
