@@ -132,6 +132,7 @@ router.post('/comment/post', function (req, res) {
   	responseDate.message = '数据不能为空'
     responseDate.code = '999'
     res.json(responseDate)
+    return
   }
   
   // 内容id

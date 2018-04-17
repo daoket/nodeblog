@@ -1,6 +1,6 @@
 var pregage = 2
 var page = 1
-var pages = 0
+var pages = 1
 var comments = []
 
 /**

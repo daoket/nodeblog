@@ -27,6 +27,10 @@ mongod --dbpath=(你的路径)\nodeblog\db
 node app
 ```
 
+### 说明
+默认启动时数据库中是没有数据的，需要先注册一个账号，然后到数据库添加```"isAdmin": true```字段，获取管理员权限，这时登录用户信息模块才会出现“进入管理界面”的入口
+
+
 # 项目截图
 
 
@@ -44,4 +48,4 @@ node app
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2017-present, daoket
+Copyright (c) 2018-present, daoket
