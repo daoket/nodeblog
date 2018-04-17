@@ -1,5 +1,5 @@
 var pregage = 2
-var page = 7
+var page = 1
 var pages = 0
 var comments = []
 
@@ -26,6 +26,7 @@ function blogAjax(url, data, fn) {
  */
 function renderComment(data) {
   $('.comment-times').html(data.length)
+  $('.comment-tips').html('')
   
   pages = Math.ceil(data.length / pregage)
   var start = Math.max(0, (page-1)*pregage)

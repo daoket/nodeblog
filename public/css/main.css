@@ -92,6 +92,10 @@ label{
 }
 .menu a{
   color: #666;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   margin: 0 20px;
 }
@@ -211,6 +215,7 @@ label{
   padding: 10px 5px;
   color: #666;
   outline: none;
+  resize: none;
   text-indent: 5px;
   border: 1px solid #1890FF;
   appearance: none;
