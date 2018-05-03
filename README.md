@@ -15,22 +15,36 @@
 * 界面美化
 * 细节打磨
 
-## 安装步骤
+## 使用步骤
 
 ``` bash
-# 下载或克隆下来，然后安装依赖
-npm install
+# 安装依赖
+yarn
 
-# 启动mongoDB数据库（启动教程这里不做说明）
-mongod --dbpath=(你的路径)\nodeblog\db
+# 启动mongoDB数据库
+
+# 获取镜像ID：
+docker images  
+
+# 运行镜像：
+docker run -p 27017:27017 -td [imagesID]
+
+#查看是运行成功： 
+docker ps
+
+# 添加管理员账号： 
+打开robo 3t
+
+#添加管理员账号
+{
+    "isAdmin" : true,
+    "username" : "admin",
+    "password" : "admin"
+}
 
 # 启动项目
-node app
+yarn dev
 ```
-
-### 说明
-启动时数据库中是没有数据的，需要先注册一个账号，然后到数据库添加```"isAdmin": true```字段，获取管理员权限，这时登录用户信息模块才会出现“进入管理界面”的入口
-
 
 # 项目截图
 

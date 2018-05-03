@@ -60,8 +60,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/blog", error => {
   } else {
     console.log("------数据库连接成功！------")
     // 监听http请求
-    app.listen(8081)
-    console.log('Server running at: http://localhost:8081')
+    app.listen(1234)
+    console.log('Server running at: http://localhost:1234')
   }
 });
 
