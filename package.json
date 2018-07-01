@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "mongo": "docker run -p 27017:27017 -td mongo",
+    "execmongo": "docker exec -it 95a6cde75236 bash"
   },
   "keywords": [],
   "author": "",
