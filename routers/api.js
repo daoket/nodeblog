@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const Content = require('../models/Content');
 
-var responseDate
+let responseDate
 
 router.use((req, res, next) => {
   responseDate = {
@@ -48,7 +48,7 @@ router.post("/user/register", (req, res, next) => {
       res.json(responseDate)
       return
     }
-    var user = new User({
+    const user = new User({
       username: username,
       password: password
     })
@@ -79,7 +79,7 @@ router.post("/user/login", (req, res, next) => {
     password: password
   }).then((userInfo) => {
     if (!userInfo) {
-       responseDate = {
+      responseDate = {
         code: '004',
         message: '用户不存在'
       }
@@ -113,36 +113,36 @@ router.get('/user/logout', function (req, res, next) {
 // 获取评论
 router.post('/comment', function (req, res) {
   // 内容id
-  var contentid = req.body.contentid || ''
+  const contentid = req.body.contentid || ''
   // 查询文章内容
   Content.findOne({
-      _id: contentid
+    _id: contentid
   }).then(function (content) {
-      responseDate.data = content
-      responseDate.code = '666'
-      res.json(responseDate)
-      return
+    responseDate.data = content
+    responseDate.code = '666'
+    res.json(responseDate)
+    return
   })
 })
 
 // 用户评论
 router.post('/comment/post', function (req, res) {
-  
+
   if (req.body.content == '') {
-  	responseDate.message = '数据不能为空'
+    responseDate.message = '数据不能为空'
     responseDate.code = '999'
     res.json(responseDate)
     return
   }
-  
+
   // 内容id
-  var contentid = req.body.contentid || ''
-  var postDate = {
+  const contentid = req.body.contentid || ''
+  const postDate = {
     username: req.userInfo.username,
     postTime: new Date(),
     content: req.body.content
   }
-  
+
   // 查询文章内容
   Content.findOne({
     _id: contentid

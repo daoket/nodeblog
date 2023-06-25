@@ -14,7 +14,7 @@
   <div class="comment-box">
   	<p class="title">
   	  <span>评论</span>
-  	  <span>一共有<span class="comment-times">0</span>条评论</span>
+  	  <span>一共有<span class="comment-times">{{content.comments.length}}</span>条评论</span>
   	</p>
   	<span class="comment-tips"></span>
   	{% if userInfo._id %}
@@ -27,12 +27,14 @@
     	<div class="no-login">你还没有登录，请先登录</div>
   	{% endif %}
   	{% if content.comments.length %}
-      <div class="comment-list">
-      	<div class="comment-item">
-          <p class="commit-title"><span>{{comment.username}}</span> <span>{{comment.postTime|date('Y年m月d日 H:i:s', -8*60)}}</span></p>
-          <p class="comment-conent">{{comment.content}}</p>
+      {% for comment in content.comments %}
+        <div class="comment-list">
+          <div class="comment-item">
+            <p class="commit-title"><span>{{comment.username}}</span> <span>{{comment.postTime|date('Y年m月d日 H:i:s', -8*60)}}</span></p>
+            <p class="comment-conent">{{comment.content}}</p>
+          </div>
         </div>
-      </div>
+      {% endfor %}
   	{% else %}
     	<p>没有留言</p>
   	{% endif %}

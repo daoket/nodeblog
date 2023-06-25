@@ -1,7 +1,7 @@
-var pregage = 2
-var page = 1
-var pages = 1
-var comments = []
+const pregage = 2
+const page = 1
+const pages = 1
+const comments = []
 
 /**
  * @desc ajax 请求
@@ -29,10 +29,10 @@ function renderComment(data) {
   $('.comment-tips').html('')
   
   pages = Math.ceil(data.length / pregage)
-  var start = Math.max(0, (page-1)*pregage)
-  var end = Math.min(start + pregage, data.length)
+  const start = Math.max(0, (page-1)*pregage)
+  const end = Math.min(start + pregage, data.length)
   
-  var $lis = $('.comment-page li')
+  const $lis = $('.comment-page li')
   $lis.eq(1).html(page + '/' + pages)
   if (page <= 1) {
   	page = 1
@@ -46,8 +46,8 @@ function renderComment(data) {
     $lis.eq(2).html(' <a href="javascript:;">下一页 </a>')
   }
   
-  var html = ''
-  for (var i =start; i < end; i++) {
+  const html = ''
+  for (const i =start; i < end; i++) {
     html += `<div class="comment-item">
       <p class="commit-title"><span>${data[i].username}</span> <span>${formatDate(data[i].postTime)}</span></p>
       <p class="comment-conent">${data[i].content}</p>
@@ -60,7 +60,7 @@ function renderComment(data) {
  * @desc 格式化怒时间
  */
 function formatDate(time) {
-  var d = new Date(time)
+  const d = new Date(time)
   return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日'
     + d.getHours() + '时' + d.getMinutes() + '分' + d.getSeconds() + '秒'
 }
@@ -84,15 +84,15 @@ $('.comment-page').on('click', 'a', function () {
 
 // 评论
 $(".comment-btn").on('click', function () {
-  var comment = "/api/comment/post"
-  var data = {
+  const comment = "/api/comment/post"
+  const data = {
     contentid: $(".contentId").val(),
     content: $(".comment-area").val()
   }
   blogAjax(comment, data, function (res) {
     $('.comment-area').val('')
     if (res.code == '666') {
-      var comments = res.data.comments.reverse()
+      const comments = res.data.comments.reverse()
       renderComment(comments)
     } else {
       $('.comment-tips').html(res.message)

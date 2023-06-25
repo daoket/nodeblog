@@ -27,8 +27,8 @@ $('.go-login').on('click', function () {
 
 // 注册
 $(".register-btn").on('click', function () {
-  var register = "/api/user/register"
-  var data = {
+  const register = "/api/user/register"
+  const data = {
     username: $(".register .username").val(),
     password: $(".register .password").val(),
     repassword: $(".register .repassword").val()
@@ -47,8 +47,8 @@ $(".register-btn").on('click', function () {
 
 // 登录
 $(".login-btn").on('click', function () {
-  var register = "/api/user/login"
-  var data = {
+  const register = "/api/user/login"
+  const data = {
     username: $(".login .username").val(),
     password: $(".login .password").val()
   }
@@ -64,20 +64,20 @@ $(".login-btn").on('click', function () {
 
 // 退出
 $(".login-out").on('click', function () {
-  var logout = "/api/user/logout"
+  const logout = "/api/user/logout"
   $.ajax({
   	type:"get",
   	url: logout,
   	success: function () {
-  	  location.reload()
+      location.href = '/'
   	}
   });
 })
 
 // 增加分类
 $('.add-category').on('click', function () {
-  var add = location.href
-  var data = {
+  const add = location.href
+  const data = {
     category: $("#name").val(),
   }
   addCategory(add, data)

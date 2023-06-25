@@ -1,8 +1,7 @@
 /**
-* 应用程序的入口文件
-* Created by wtniu on 2018-04-11.
-* Copyright 2018 wtniu. All rights reserved.
-*/
+ * @author 花神
+ * @description 入口
+ */
 
 // 加载模块
 const express = require('express')
@@ -32,16 +31,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // 设置cookie
-app.use(function (req, res, next) {
+app.use(async function (req, res, next) {
   req.cookies = new Cookies(req, res)
   // 解析登录用户的cookies信息
-  var userInfo = {}
   if (req.cookies.get('userInfo')) {
     try{
-      req.userInfo = JSON.parse(req.cookies.get("userInfo"));
-      User.findById(req.userInfo._id).then(function (userInfo) {
-        req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
-      })
+      req.userInfo = JSON.parse(req.cookies.get("userInfo"))
+      const userInfo = await User.findById(req.userInfo._id)
+      req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
     }catch(e){
     	console.log(e)
     }
@@ -62,4 +59,3 @@ mongoose.connect("mongodb://127.0.0.1:27017/blog", { useNewUrlParser: true, useU
 }, err => {
   console.log(`【${time}】数据库连接失败：` + err)
 })
-
