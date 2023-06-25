@@ -54,15 +54,12 @@ app.use('/admin', require('./routers/admin'))
 app.use('/api', require('./routers/api'))
 app.use('/', require('./routers/main'))
 
-mongoose.connect("mongodb://127.0.0.1:27017/blog", error => {
-  if (error) {
-    console.log("数据库连接失败：" + error)
-  } else {
-    console.log("------数据库连接成功！------")
-    // 监听http请求
-    app.listen(1234)
-    console.log('Server running at: http://localhost:1234')
-  }
-});
-
+const time = new Date().toLocaleString()
+mongoose.connect("mongodb://127.0.0.1:27017/blog", { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+  const server = app.listen(9527, () => {
+    console.log(`【${time}】数据库连接成功 Server is 🏃‍ at: http://127.0.0.1:${server.address().port}`)
+  })
+}, err => {
+  console.log(`【${time}】数据库连接失败：` + err)
+})
 

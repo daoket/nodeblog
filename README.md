@@ -33,7 +33,7 @@ docker run -p 27017:27017 -td [imagesID]
 docker ps
 
 # 添加管理员账号： 
-打开robo 3t
+打开 Robo 3T
 
 #添加管理员账号
 {
@@ -51,13 +51,15 @@ yarn dev
 
 ### 博客首页
 <center>
-<img src="https://daoket.github.io/static/home.png"/>
+<img src="./public/images/home.png"/>
 <center/>
+http://127.0.0.1:9527
 
 ### 博客管理后台
 <center>
-<img src="https://daoket.github.io/static/admin.png"/>
+<img src="./public/images/admin.png"/>
 <center/>
+http://127.0.0.1:9527/admin
 
 ## License
 
